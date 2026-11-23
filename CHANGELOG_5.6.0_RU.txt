@@ -1,0 +1,28 @@
+PURPLE HUB NATIVE 5.6.0 — API SETTINGS & PROVIDER COMPATIBILITY
+
+ИЗМЕНЕНИЯ
+- Исправлена навигация: чип «API» на экране FAIRY открывает экран AI API напрямую, без промежуточного Control Center.
+- API Monitor также доступен через Настройки → AI API и статистика.
+- Локальный режим больше не блокируется старым сохранённым флагом, если на устройстве нет авторизованного Firebase-пользователя.
+- Ошибка Firebase CONFIGURATION_NOT_FOUND теперь объясняется отдельно и не смешивается с настройкой AI API.
+- Переписаны подсказки: подключаются Gemini (Google AI Studio), OpenRouter, Groq, Qwen/DashScope, DeepSeek, Mistral и другие сервисы, поддерживающие OpenAI-совместимый Chat Completions API и Bearer-авторизацию.
+- Добавлены готовые Base URL, проверка подключения, уточнение необходимости точного ID модели и ключа выбранного провайдера.
+- При смене Base URL старый API-ключ не переносится автоматически; требуется ключ нового провайдера.
+- API Monitor теперь учитывает реальные сетевые вызовы FAIRY и OpenAI web search: HTTP-статусы, ошибки, задержку, HTTP 429 и usage-токены, если провайдер их возвращает.
+- В Chat Completions используется параметр max_tokens для широкой совместимости.
+- Ограничение HTTP 429 сохраняется отдельно по хосту каждого провайдера.
+- Обновлён User-Agent до PurpleHubNative/5.6.
+
+ПРЕДУПРЕЖДЕНИЯ
+- Поддерживается не любой API только по наличию ключа: endpoint должен быть совместим с OpenAI Chat Completions и Bearer auth.
+- Anthropic Messages API напрямую не поддерживается; его можно использовать через совместимый шлюз, например OpenRouter.
+- Vision требует поддержки image_url конкретной моделью и провайдером.
+- Встроенный веб-поиск пока использует официальный OpenAI Responses API и не переносится автоматически на сторонние endpoints.
+- Реальная стоимость, квоты и правила хранения данных зависят от выбранного провайдера.
+
+ВЕРСИЯ
+- applicationId: com.purplehub.app (без изменений).
+- versionCode: 23.
+- versionName: 5.6.0.
+- Старые SharedPreferences и Android Keystore alias API-ключа сохранены для миграции.
+- google-services.json не включён в архив; используй собственный Firebase-файл в app/.

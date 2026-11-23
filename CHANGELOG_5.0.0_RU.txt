@@ -1,0 +1,11 @@
+PURPLE HUB 5.0.0 — NATIVE REBUILD
+
+- Полный отказ от WebView/HTML/CSS/JS.
+- Kotlin + Jetpack Compose.
+- Нативная библиотека модулей и нижняя навигация.
+- Общие тёмная и светлая темы.
+- FAIRY: нативный чат, совместимый Chat Completions API, голосовой ввод, локальные заметки и память.
+- ZZZ Companion: крутки, pity, гарант, цель, отряд и материалы.
+- Password Vault: криптографический генератор и зашифрованное локальное хранилище.
+- Добавлен импорт/экспорт старых резервных копий FAIRY Notes, ZZZ Companion, Password Vault.
+- Повторно использованы настройки API и ключ Android Keystore от ветки 4.1.1.
